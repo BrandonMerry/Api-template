@@ -1,19 +1,18 @@
 // use this file to seperate routes form sever folder
 const express = require('express')
 const router = express.Router()
+//define that const so that the router knows where to get data from in controller
+const {
+  getData,
+  setData,
+  updateData,
+  deleteData,
+} = require('../controllers/dataController')
 
-// use roter and pulls apu from app.use in server.js
-router.get('/', (req, res) => {
-  res.status(200).json({ message: 'get data oject from server' })
-})
-router.post('/', (req, res) => {
-  res.status(200).json({ message: 'create data object' })
-})
-router.put('/:id', (req, res) => {
-  res.status(200).json({ message: `update ${req.params.id}` })
-})
-router.delete('/:id', (req, res) => {
-  res.status(200).json({ message: `delete ${req.params.id}` })
-})
+//gets data from controller function called getData
+router.get('/', getData)
+router.post('/', setData)
+router.put('/:id', updateData)
+router.delete('/:id', deleteData)
 
 module.exports = router
