@@ -1,7 +1,3 @@
-// this middle ware is a function that exicutes during request / respose cycle
-//eg. when you make a Get, Put, Post, Delete request to the sever
-
-// overwrites the express error handler
 const errorHandler = (err, req, res, next) => {
   const statusCode = res.statusCode ? res.statusCode : 500
 
@@ -13,7 +9,9 @@ const errorHandler = (err, req, res, next) => {
   })
 }
 
-//exports an object with error handler
 module.exports = {
   errorHandler,
 }
+
+// this middle ware is a function that exicutes during request / respose cycle
+//eg. when you make a Get, Put, Post, Delete request to the sever
