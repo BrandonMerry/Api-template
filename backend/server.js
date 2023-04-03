@@ -17,7 +17,9 @@ app.use(express.json())
 // for url middleward
 app.use(express.urlencoded({ extended: false }))
 
+// /api/goals relates to the file in the require ('') bracket
 app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
 // overwrites default error handler with middlewares
 
